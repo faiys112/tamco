@@ -287,6 +287,97 @@
                 flex-direction: column;
             }
         }
+        /* SECTION */
+        
+        .rti-section {
+            padding: 60px 20px;
+            background: #f4f6fb;
+            text-align: center;
+        }
+        /* TITLE */
+        
+        .rti-title {
+            margin-bottom: 30px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        /* TABLE CONTAINER */
+        
+        .table-container {
+            max-width: 1100px;
+            margin: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        /* TABLE */
+        
+        .rti-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        /* HEADER */
+        
+        .rti-table thead {
+            background: #2c4a92;
+            color: #fff;
+            position: sticky;
+            top: 0;
+        }
+        
+        .rti-table th {
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+            background-color: rgb(74 67 220);
+        }
+        /* BODY */
+        
+        .rti-table td {
+            padding: 13px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            vertical-align: top;
+        }
+        /* HOVER EFFECT */
+        
+        .rti-table tbody tr:hover {
+            background: #f1f5ff;
+            transform: scale(1.01);
+            transition: 0.2s;
+        }
+        /* MOBILE */
+        
+        @media(max-width:768px) {
+            .rti-table thead {
+                display: none;
+            }
+            .rti-table,
+            .rti-table tbody,
+            .rti-table tr,
+            .rti-table td {
+                display: block;
+                width: 100%;
+            }
+            .rti-table tr {
+                margin-bottom: 15px;
+                background: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            }
+            .rti-table td {
+                padding: 10px;
+            }
+            .rti-table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+        }
     </style>
 </head>
 
@@ -356,26 +447,60 @@
 
 
     </section>
-    <section class="about-section">
-        <div class="about-card">
-            <h2 class="about-title">About TAMCO</h2>
-            <div class="underline"></div>
 
-            <p class="about-text">
-                Tamil Nadu Minorities Development Corporation (TAMCO) was established in 1999 as a state-owned company under the Companies Act, 1956. With an authorized share capital of ₹30 crore and paid-up capital of ₹12.27 crore, TAMCO serves as the channelizing agency
-                for the National Backward Classes Finance and Development Corporation, providing financial assistance to eligible beneficiaries for their economic upliftment and business development.
-            </p>
 
-            <a href="about.html" class="btn-primary">Learn More About Us</a>
+    <section class="rti-section">
+
+        <h2 class="rti-title">
+            Officers to whom apply for seeking information under RTI Act, 2005
+        </h2>
+
+        <div class="table-container">
+
+            <table class="rti-table">
+
+                <thead>
+                    <tr>
+                        <th>Sl. No.</th>
+                        <th>Official</th>
+                        <th>Designation</th>
+                        <th>Office Address</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>📄 Public Information Officer</td>
+                        <td>Manager (Credit & Project)</td>
+                        <td>
+                            The Managing Director,<br> Tamil Nadu Minorities Economic Development Corporation Ltd. (TAMCO),<br> Khalsa Mahal Heritage Building, 1st Floor, Chepauk,<br> Chennai - 600 005.
+                        </td>
+                        <td>📞 044-28514846</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>📄 Appellate Authority</td>
+                        <td>Managing Director</td>
+                        <td>
+                            The Managing Director,<br> Tamil Nadu Minorities Economic Development Corporation Ltd. (TAMCO),<br> Khalsa Mahal Heritage Building, 1st Floor, Chepauk,<br> Chennai - 600 005.
+                        </td>
+                        <td>📞 044-28515050</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
         </div>
+
     </section>
 
 
 
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.3149684639066!2d80.27904904409527!3d13.061883267884221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52690009dc3adb%3A0x6756513a4791065c!2sKhalsa%20mahal!5e0!3m2!1sen!2sin!4v1777375673841!5m2!1sen!2sin"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
 
     <footer class="footer-section">
 
