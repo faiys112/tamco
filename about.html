@@ -401,6 +401,96 @@
                 flex-direction: column;
             }
         }
+        
+        .org-container {
+            padding: 60px 20px;
+            text-align: center;
+            background: #f4f6fb;
+        }
+        /* TITLE */
+        
+        .org-heading {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid #2801ff;
+            border-radius: 10px;
+            color: #2801ff;
+            margin-bottom: 40px;
+        }
+        /* FLOW WRAPPER */
+        
+        .org-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* NODE BOX */
+        
+        .node {
+            background: #fff;
+            border: 2px solid #2801ff;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: 0.3s;
+            margin: 5px 0;
+        }
+        /* SMALL NODE */
+        
+        .small {
+            font-size: 13px;
+            padding: 10px 14px;
+        }
+        /* HOVER */
+        
+        .node:hover {
+            background: #4348e0;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* ARROWS */
+        
+        .arrow {
+            font-size: 22px;
+            color: #555;
+            margin: 5px 0;
+        }
+        /* SPLIT SECTION */
+        
+        .split {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+        }
+        /* BRANCH */
+        
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* ROW */
+        
+        .row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        /* RESPONSIVE */
+        
+        @media(max-width:768px) {
+            .split {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 
 
@@ -618,9 +708,72 @@
     <div id="organization" class="tab-content">
         <div class="section-title">🏢 Organization</div>
 
-        <p>
-            TAMCO functions under the Government of Tamil Nadu and works with financial institutions and banks to implement loan schemes.
-        </p>
+        <section class="org-container">
+
+            <h2 class="org-heading">Organisation Chart of TAMCO</h2>
+
+            <div class="org-flow">
+
+                <!-- TOP -->
+                <div class="node">👑 Chairman</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="node">💼 Managing Director</div>
+
+                <div class="arrow">↓</div>
+
+                <!-- SPLIT -->
+                <div class="split">
+
+                    <!-- LEFT SIDE -->
+                    <div class="branch">
+                        <div class="node">📊 Account Officer</div>
+                        <div class="arrow">↓</div>
+
+                        <div class="node">🧑‍💼 Superintendent</div>
+                        <div class="arrow">↓</div>
+
+                        <div class="row">
+                            <div class="node small">👤 Assistant</div>
+                            <div class="node small">👤 Junior Assistant</div>
+                        </div>
+
+                        <div class="arrow">↓</div>
+                        <div class="node small">🗂 Office Assistant</div>
+                    </div>
+
+                    <!-- RIGHT SIDE -->
+                    <div class="branch">
+                        <div class="node">📈 Manager (Credit & Project)</div>
+                        <div class="arrow">↓</div>
+
+                        <div class="node">🧑‍💼 Superintendent</div>
+                    </div>
+
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <!-- BOTTOM ROW -->
+                <div class="row">
+                    <div class="node small">👤 Assistant</div>
+                    <div class="node small">👤 Assistant</div>
+                    <div class="node small">👤 Junior Assistant</div>
+                    <div class="node small">💻 Computer Operator</div>
+                    <div class="node small">⌨ Typist</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="row">
+                    <div class="node small">🗂 Office Assistant</div>
+                    <div class="node">🔁 Recovery Supervisor</div>
+                </div>
+
+            </div>
+
+        </section>
     </div>
 
     <!-- BOARD -->
@@ -644,6 +797,19 @@
         </div>
     </div>
 
+    <script>
+        function toggleLogin() {
+            let menu = document.getElementById("loginMenu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        // Close when clicking outside
+        window.onclick = function(e) {
+            if (!e.target.matches('.login-container span')) {
+                document.getElementById("loginMenu").style.display = "none";
+            }
+        }
+    </script>
     <!-- SCRIPT -->
     <script>
         function openTab(tabId) {
