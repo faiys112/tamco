@@ -1,16 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>About Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TAMCO</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f3f4f6;
+            margin: 0;
+        }
+        /* HEADER */
+        
+        .about-header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .about-header h1 {
+            font-size: 32px;
+        }
+        
+        .about-header p {
+            color: #555;
+        }
+        /* TABS */
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #e5e7eb;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .tab-btn.active {
+            background: #7a2cff;
+            color: #fff;
+        }
+        /* CONTENT BOX */
+        
+        .tab-content {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        /* TITLE */
+        
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #4b2cbf;
+        }
+        /* TEXT */
+        
+        .tab-content p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        /* LIST */
+        
+        .highlight-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .highlight-list div {
+            background: #f9fafb;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        /* RESPONSIVE */
+        
+        @media(max-width:768px) {
+            .highlight-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>About TAMCO</h1>
-    <p>This is About Us page</p>
+    <!-- HEADER -->
+    <div class="about-header">
+        <h1>About TAMCO</h1>
+        <p>Tamil Nadu Minorities Development Corporation - Empowering Communities Since 1999</p>
+    </div>
 
-    <a href="index.html">Go Back Home</a>
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab('overview')">Overview</button>
+        <button class="tab-btn" onclick="openTab('objective')">Objective</button>
+        <button class="tab-btn" onclick="openTab('organization')">Organization</button>
+        <button class="tab-btn" onclick="openTab('board')">Board of Directors</button>
+        <button class="tab-btn" onclick="openTab('achievements')">Achievements</button>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div id="overview" class="tab-content active">
+        <div class="section-title">📄 About Tamil Nadu Minorities Development Corporation</div>
+
+        <p>
+            Tamil Nadu Minorities Development Corporation (TAMCO) was established in 1999 to promote economic and developmental activities for Backward Classes, Most Backward Classes, and Denotified Communities.
+        </p>
+
+        <p>
+            TAMCO provides financial assistance at concessional interest rates to support small businesses, entrepreneurship, and economic upliftment.
+        </p>
+    </div>
+
+    <!-- OBJECTIVE -->
+    <div id="objective" class="tab-content">
+        <div class="section-title">🎯 Objective</div>
+
+        <p>
+            To promote economic development by providing financial assistance for income-generating activities.
+        </p>
+
+        <p>
+            To empower individuals through sustainable livelihood opportunities.
+        </p>
+    </div>
+
+    <!-- ORGANIZATION -->
+    <div id="organization" class="tab-content">
+        <div class="section-title">🏢 Organization</div>
+
+        <p>
+            TAMCO functions under the Government of Tamil Nadu and works with financial institutions and banks to implement loan schemes.
+        </p>
+    </div>
+
+    <!-- BOARD -->
+    <div id="board" class="tab-content">
+        <div class="section-title">👥 Board of Directors</div>
+
+        <p>Chairman</p>
+        <p>Managing Director</p>
+        <p>Government Officials</p>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div id="achievements" class="tab-content">
+        <div class="section-title">🏆 Achievements</div>
+
+        <div class="highlight-list">
+            <div>✔ Established in 1999</div>
+            <div>✔ ₹500+ Crore Loans Distributed</div>
+            <div>✔ Thousands of Beneficiaries</div>
+            <div>✔ Government Supported</div>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function openTab(tabId) {
+
+            let contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            let buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+
+            event.target.classList.add('active');
+        }
+    </script>
 
 </body>
 
