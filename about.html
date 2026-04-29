@@ -7,10 +7,187 @@
     <title>About TAMCO</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
         body {
             font-family: Arial;
             background: #f3f4f6;
             margin: 0;
+        }
+        /* HEADER */
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background: #f5f5f5;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-section img {
+            width: 50px;
+        }
+        
+        .logo-text h2 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .contact {
+            font-size: 14px;
+        }
+        /* NAVBAR */
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 40px;
+            background: linear-gradient(to right, #4b2cbf, #7a2cff);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .login {
+            font-size: 14px;
+        }
+        /* HERO SECTION */
+        /* HERO SECTION WITH BACKGROUND IMAGE */
+        
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 60px;
+            color: #ffffff;
+            /* BACKGROUND IMAGE + OVERLAY */
+            background: linear-gradient(rgb(75 2 191 / 0%), rgb(75 2 191 / 0%)), url('https://res.cloudinary.com/dtfhliga9/image/upload/v1777369116/TAMCO_Building_photo_ppe8tu.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 60px;
+        }
+        
+        .hero-text {
+            max-width: 55%;
+            background-color: #00000075;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .btn1 {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 2px solid #e90c0c;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #e60000;
+        }
+        
+        .btn1:hover {
+            background-color: #04AA6D;
+            border: 2px solid #04AA6D;
+            color: white;
+        }
+        /* HERO IMAGE */
+        
+        .hero-img img {
+            width: 231px;
+            height: 263px;
+            border-radius: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .login-container {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .login-dropdown {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            width: 280px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            display: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .login-item {
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        
+        .login-item:hover {
+            background: #f3f3f3;
+        }
+        
+        .login-item strong {
+            display: block;
+            font-size: 14px;
+        }
+        
+        .login-item p {
+            font-size: 12px;
+            color: #666;
         }
         /* HEADER */
         
@@ -156,12 +333,143 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* SECTION */
+        
+        .objective-section {
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        /* BOX */
+        
+        .info-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        /* TITLE */
+        
+        .info-box h3 {
+            color: #4b2cbf;
+            margin-bottom: 10px;
+        }
+        /* INTRO TEXT */
+        
+        .intro {
+            color: #444;
+            margin-bottom: 20px;
+        }
+        /* ITEM */
+        
+        .objective-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        /* NUMBER CIRCLE */
+        
+        .number {
+            min-width: 35px;
+            height: 35px;
+            background: #e0e7ff;
+            color: #4b2cbf;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        /* TITLE */
+        
+        .objective-item h4 {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+        /* TEXT */
+        
+        .objective-item p {
+            margin: 0;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        /* MOBILE */
+        
+        @media(max-width:768px) {
+            .objective-item {
+                flex-direction: column;
+            }
+        }
     </style>
 
 
 </head>
 
 <body>
+
+    <!-- HEADER -->
+    <div class="top-bar">
+        <div class="logo-section">
+            <img src="tamco-logo.png" alt="logo">
+            <div class="logo-text">
+                <h2>Tamil Nadu Minorities Development Corporation</h2>
+                <p>A Tamil Nadu Government Undertaking</p>
+            </div>
+        </div>
+
+        <div class="contact">
+            📞 044-28514846 &nbsp;&nbsp; ✉ tamco@tn.gov.in
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="loan-schemes.html">Loan Schemes</a>
+            <a href="loan-details.html">Loan Details</a>
+            <a href="rti.html">RTI</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="forms.html">Forms</a>
+            <a href="apply.html">Apply Now</a>
+        </div>
+
+        <div class="login-container">
+            <span onclick="toggleLogin()">Login ▼</span>
+
+            <!-- LOGIN DROPDOWN -->
+            <div class="login-dropdown" id="loginMenu">
+                <div class="login-item">
+                    <strong>Beneficiary Login</strong>
+                    <p>For loan applicants</p>
+                </div>
+
+                <div class="login-item">
+                    <strong>Tamco Login</strong>
+                    <p>For administrators</p>
+                </div>
+
+                <div class="login-item">
+                    <strong>Bank Login</strong>
+                    <p>For partner banks</p>
+                </div>
+
+                <div class="login-item">
+                    <strong>JR Login</strong>
+                    <p>For field officers</p>
+                </div>
+
+                <div class="login-item">
+                    <strong>DBCW Login</strong>
+                    <p>For administrators</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- HEADER -->
     <div class="about-header">
@@ -236,15 +544,74 @@
 
     <!-- OBJECTIVE -->
     <div id="objective" class="tab-content">
-        <div class="section-title">🎯 Objective</div>
+        <div class="objective-section">
 
-        <p>
-            To promote economic development by providing financial assistance for income-generating activities.
-        </p>
+            <div class="info-box">
 
-        <p>
-            To empower individuals through sustainable livelihood opportunities.
-        </p>
+                <h3>Primary Objectives</h3>
+
+                <p class="intro">
+                    The Tamil Nadu Minorities Development Corporation (TAMCO) was established with the following key objectives:
+                </p>
+
+                <!-- ITEM 1 -->
+                <div class="objective-item">
+                    <div class="number">1</div>
+                    <div>
+                        <h4>Financial Assistance</h4>
+                        <p>
+                            To provide financial assistance at concessional rates of interest to individuals, groups belonging to Backward Classes, Most Backward Classes, and Denotified Communities for establishing viable trade or business ventures.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="objective-item">
+                    <div class="number">2</div>
+                    <div>
+                        <h4>Economic Upliftment</h4>
+                        <p>
+                            To promote economic and developmental activities for the benefit of Backward Classes, Most Backward Classes, and Denotified Communities to improve their socio-economic conditions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="objective-item">
+                    <div class="number">3</div>
+                    <div>
+                        <h4>Channelizing Agency</h4>
+                        <p>
+                            To act as a channelizing agency for the National Backward Classes Finance and Development Corporation (NBCFDC) to implement various loan schemes for the target groups.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="objective-item">
+                    <div class="number">4</div>
+                    <div>
+                        <h4>Skill Development</h4>
+                        <p>
+                            To undertake activities for skill development and capacity building of the target groups to enhance their employability and entrepreneurship capabilities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 5 -->
+                <div class="objective-item">
+                    <div class="number">5</div>
+                    <div>
+                        <h4>Educational Support</h4>
+                        <p>
+                            To provide educational loans and scholarships to students from Backward Classes, Most Backward Classes, and Denotified Communities to pursue higher education.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <!-- ORGANIZATION -->
