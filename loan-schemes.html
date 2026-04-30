@@ -287,6 +287,289 @@
                 flex-direction: column;
             }
         }
+        /* SECTION */
+        
+        .loan-schemes-section {
+            padding: 80px 40px;
+            background: #f5f7fb;
+            text-align: center;
+        }
+        
+        .loan-title-badge {
+            display: inline-block;
+            background: #dbeafe;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .loan-schemes-section h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+        
+        .loan-subtitle {
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        /* GRID */
+        
+        .loan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        /* BOX */
+        
+        .loan-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+            border-top: 5px solid transparent;
+        }
+        
+        .loan-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+        }
+        /* TOP COLORS */
+        
+        .blue-card {
+            border-color: #2563eb;
+        }
+        
+        .green-card {
+            border-color: #16a34a;
+        }
+        
+        .orange-card {
+            border-color: #ea580c;
+        }
+        
+        .purple-card {
+            border-color: #9333ea;
+        }
+        /* ICON */
+        
+        .loan-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        
+        .loan-box:hover .loan-icon {
+            transform: scale(1.15) rotate(8deg);
+        }
+        /* DETAILS */
+        
+        .loan-detail {
+            display: flex;
+            justify-content: space-between;
+            background: #f3f4f6;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        .loan-box ul {
+            margin: 20px 0;
+            padding-left: 18px;
+        }
+        
+        .loan-box li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        /* BUTTON */
+        
+        .apply-btn {
+            display: block;
+            text-align: center;
+            padding: 13px;
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .blue-btn {
+            background: linear-gradient(to right, #3b82f6, #1d4ed8);
+        }
+        
+        .green-btn {
+            background: linear-gradient(to right, #22c55e, #15803d);
+        }
+        
+        .orange-btn {
+            background: linear-gradient(to right, #f59e0b, #c2410c);
+        }
+        
+        .purple-btn {
+            background: linear-gradient(to right, #a855f7, #7e22ce);
+        }
+        
+        .apply-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* SECTION */
+        
+        .application-section {
+            padding: 80px 40px;
+            background: #f5f7fb;
+            text-align: center;
+        }
+        
+        .application-section h2 {
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+        /* CONTAINER */
+        
+        .app-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        /* DOCUMENTS */
+        
+        .documents {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .documents h3 {
+            margin-bottom: 15px;
+        }
+        
+        .documents ul {
+            list-style: none;
+        }
+        
+        .documents li {
+            background: #fff;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+        /* HOVER */
+        
+        .documents li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        /* PROCESS */
+        
+        .process {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .process h3 {
+            margin-bottom: 20px;
+        }
+        /* TIMELINE */
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: #7a2cff;
+        }
+        /* STEP */
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        /* CIRCLE */
+        
+        .circle {
+            width: 30px;
+            height: 30px;
+            background: #7a2cff;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            position: absolute;
+            left: -5px;
+        }
+        /* CONTENT BOX */
+        
+        .content {
+            background: #fff;
+            padding: 15px;
+            margin-left: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            width: 620px;
+        }
+        /* HOVER */
+        
+        .step:hover .content {
+            transform: translateX(5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        /* BUTTON */
+        
+        .apply-btn-box {
+            margin-top: 40px;
+        }
+        
+        .start-btn {
+            padding: 14px 30px;
+            background: linear-gradient(to right, #7a2cff, #a94cff);
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        /* RESPONSIVE */
+        
+        @media(max-width:768px) {
+            .app-container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
@@ -355,26 +638,180 @@
     </div>
 
 
-    </section>
-    <section class="about-section">
-        <div class="about-card">
-            <h2 class="about-title">About TAMCO</h2>
-            <div class="underline"></div>
+    <section class="loan-schemes-section">
 
-            <p class="about-text">
-                Tamil Nadu Minorities Development Corporation (TAMCO) was established in 1999 as a state-owned company under the Companies Act, 1956. With an authorized share capital of ₹30 crore and paid-up capital of ₹12.27 crore, TAMCO serves as the channelizing agency
-                for the National Backward Classes Finance and Development Corporation, providing financial assistance to eligible beneficiaries for their economic upliftment and business development.
-            </p>
+        <div class="loan-title-badge">
+            🏛 National Backward Classes Finance & Development Corporation
+        </div>
 
-            <a href="about.html" class="btn-primary">Learn More About Us</a>
+        <h2>NBCFDC Loan Schemes</h2>
+        <p class="loan-subtitle">
+            Schemes implemented through TAMCO as the channelizing agency of the National Backward Classes Finance & Development Corporation
+        </p>
+
+        <div class="loan-grid">
+
+            <!-- CARD 1 -->
+            <div class="loan-box blue-card">
+                <div class="loan-icon">🏢</div>
+                <h3>General Term Loan (GTL)</h3>
+                <p style="font-size: 14px;">General term loan for starting or expanding business.</p>
+
+                <div class="loan-detail"><span>Loan Amount:</span><strong>Up to ₹30,00,000</strong></div>
+                <div class="loan-detail"><span>Interest:</span><strong>6% p.a</strong></div>
+                <div class="loan-detail"><span>Repayment:</span><strong>Up to 10 Years</strong></div>
+                <p><b>Eligibility:</b></p>
+                <ul>
+                    <li>✔ BC/MBC/DNC category</li>
+                    <li>✔ Income below ₹3,00,000</li>
+                    <li>✔ Age 18–55 years</li>
+                </ul>
+
+                <a href="#" class="apply-btn blue-btn">Apply Now</a>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="loan-box green-card">
+                <div class="loan-icon">👥</div>
+                <h3>MCS Loan Scheme</h3>
+                <p style="font-size: 14px;">Small loans for business activities and working capital.</p>
+
+                <div class="loan-detail"><span>Loan Amount:</span><strong>Up to ₹10,00,000</strong></div>
+                <div class="loan-detail"><span>Interest:</span><strong>5% p.a</strong></div>
+                <div class="loan-detail"><span>Repayment:</span><strong>3–5 Years</strong></div>
+                <p><b>Eligibility:</b></p>
+                <ul>
+                    <li>✔ Self Help Groups</li>
+                    <li>✔ Income below ₹3,00,000</li>
+                    <li>✔ Age 18–60 years</li>
+                </ul>
+
+                <a href="#" class="apply-btn green-btn">Apply Now</a>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="loan-box orange-card">
+                <div class="loan-icon">🛠</div>
+                <h3>Virasat Loan</h3>
+                <p style="font-size: 14px;">Financial support for artisans and traditional businesses.</p>
+
+                <div class="loan-detail"><span>Loan Amount:</span><strong>Up to ₹2,00,000</strong></div>
+                <div class="loan-detail"><span>Interest:</span><strong>4% - 5%</strong></div>
+                <div class="loan-detail"><span>Repayment:</span><strong>Up to 5 Years</strong></div>
+                <p><b>Eligibility:</b></p>
+                <ul>
+                    <li>✔ Artisan category</li>
+                    <li>✔ Income below ₹3,00,000</li>
+                    <li>✔ Business support</li>
+                </ul>
+
+                <a href="#" class="apply-btn orange-btn">Apply Now</a>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="loan-box purple-card">
+                <div class="loan-icon">🎓</div>
+                <h3>Education Loan</h3>
+                <p style="font-size: 14px;">Support for professional and technical education.</p>
+
+                <div class="loan-detail"><span>Loan Amount:</span><strong>Up to ₹20,00,000</strong></div>
+                <div class="loan-detail"><span>Interest:</span><strong>4% p.a</strong></div>
+                <div class="loan-detail"><span>Repayment:</span><strong>After Course</strong></div>
+                <p><b>Eligibility:</b></p>
+                <ul>
+                    <li>✔ Student category</li>
+                    <li>✔ Admission proof required</li>
+                    <li>✔ Income below ₹3,00,000</li>
+                </ul>
+
+                <a href="#" class="apply-btn purple-btn">Apply Now</a>
+            </div>
+
         </div>
     </section>
 
+    <div class="app-container">
+        <section class="application-section">
 
+            <h2>📄 Application Process & Requirements</h2>
 
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.3149684639066!2d80.27904904409527!3d13.061883267884221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52690009dc3adb%3A0x6756513a4791065c!2sKhalsa%20mahal!5e0!3m2!1sen!2sin!4v1777375673841!5m2!1sen!2sin"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="app-container">
+
+                <!-- LEFT SIDE -->
+                <div class="documents">
+                    <h3>Required Documents</h3>
+
+                    <ul>
+                        <li>✔ Aadhar Card & PAN Card</li>
+                        <li>✔ Category Certificate (BC/MBC/DNC)</li>
+                        <li>✔ Income Certificate</li>
+                        <li>✔ Bank Account Details & Passbook</li>
+                        <li>✔ Business Plan / Project Report</li>
+                        <li>✔ Property Documents (if applicable)</li>
+                        <li>✔ Passport size photographs</li>
+                        <li>✔ Address Proof</li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="process">
+
+                    <h3>Application Process</h3>
+
+                    <div class="timeline">
+
+                        <div class="step">
+                            <div class="circle">1</div>
+                            <div class="content">
+                                <h4>Online Application</h4>
+                                <p>Fill and submit the online application form with basic details</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="circle">2</div>
+                            <div class="content">
+                                <h4>Document Submission</h4>
+                                <p>Upload all required documents for verification</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="circle">3</div>
+                            <div class="content">
+                                <h4>Field Verification</h4>
+                                <p>Verification by Junior Representative (JR)</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="circle">4</div>
+                            <div class="content">
+                                <h4>Application Processing</h4>
+                                <p>Review and processing by TAMCO officials</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="circle">5</div>
+                            <div class="content">
+                                <h4>Approval & Disbursement</h4>
+                                <p>Final approval and loan amount credited to bank</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="apply-btn-box">
+                <a href="#" class="start-btn">Start Your Application</a>
+            </div>
+
+        </section>
+
     </div>
 
     <footer class="footer-section">
