@@ -287,6 +287,118 @@
                 flex-direction: column;
             }
         }
+        
+        .gtl-section {
+            padding: 80px 40px;
+            background: #f5f7fb;
+            text-align: center;
+        }
+        
+        .gtl-section h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .gtl-desc {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        /* FEATURES */
+        
+        .gtl-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .gtl-features div {
+            background: #fff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+        
+        .gtl-features div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        /* TABLE */
+        
+        .gtl-table-box {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        thead {
+            background: linear-gradient(to right, #4b2cbf, #7a2cff);
+            color: #fff;
+        }
+        
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        tbody tr:nth-child(even) {
+            background: #f3f4f6;
+        }
+        
+        tbody tr:hover {
+            background: #e0e7ff;
+        }
+        /* FUND BOX */
+        
+        .fund-box {
+            background: #fff;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .fund-box h4 {
+            margin-bottom: 10px;
+        }
+        /* DOWNLOAD BUTTON */
+        
+        .download-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        /* RESPONSIVE */
+        
+        @media(max-width:768px) {
+            .gtl-features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
@@ -355,27 +467,77 @@
     </div>
 
 
-    </section>
-    <section class="about-section">
-        <div class="about-card">
-            <h2 class="about-title">About TAMCO</h2>
-            <div class="underline"></div>
+    <section class="gtl-section">
 
-            <p class="about-text">
-                Tamil Nadu Minorities Development Corporation (TAMCO) was established in 1999 as a state-owned company under the Companies Act, 1956. With an authorized share capital of ₹30 crore and paid-up capital of ₹12.27 crore, TAMCO serves as the channelizing agency
-                for the National Backward Classes Finance and Development Corporation, providing financial assistance to eligible beneficiaries for their economic upliftment and business development.
-            </p>
+        <h2>General Term Loan (GTL)</h2>
 
-            <a href="about.html" class="btn-primary">Learn More About Us</a>
+        <p class="gtl-desc">
+            Loans are provided to support business activities, start new industries, or expand existing enterprises.
+        </p>
+
+        <!-- FEATURES -->
+        <div class="gtl-features">
+            <div>✔ Small Trade / Agriculture Development</div>
+            <div>✔ Handicrafts & Traditional Work</div>
+            <div>✔ Industrial & Service Sector</div>
+            <div>✔ Purchase of Light Motor Vehicles</div>
+            <div>✔ Agriculture-related Activities</div>
         </div>
+
+        <!-- SCHEME TABLE -->
+        <div class="gtl-table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Details</th>
+                        <th>Scheme I</th>
+                        <th>Scheme II</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Maximum Loan Amount</td>
+                        <td>₹20.00 Lakhs</td>
+                        <td>₹30.00 Lakhs</td>
+                    </tr>
+
+                    <tr>
+                        <td>Income Limit</td>
+                        <td>₹3,00,000</td>
+                        <td>₹8,00,000</td>
+                    </tr>
+
+                    <tr>
+                        <td>Interest Rate</td>
+                        <td>6% p.a</td>
+                        <td>8% (Male) / 6% (Female)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Repayment Period</td>
+                        <td colspan="2">Maximum 5 years (60 EMI)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FUND SHARE -->
+        <div class="fund-box">
+            <h4>Fund Sharing Pattern</h4>
+            <p>NBCFDC: <strong>90%</strong></p>
+            <p>TAMCO: <strong>5%</strong></p>
+            <p>Beneficiary: <strong>5%</strong></p>
+        </div>
+
+        <!-- DOWNLOAD BUTTON -->
+        <div class="download-box">
+            <a href="application-form.pdf" download class="download-btn">
+            📄 Download Application Form
+        </a>
+        </div>
+
     </section>
-
-
-
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.3149684639066!2d80.27904904409527!3d13.061883267884221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52690009dc3adb%3A0x6756513a4791065c!2sKhalsa%20mahal!5e0!3m2!1sen!2sin!4v1777375673841!5m2!1sen!2sin"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
 
     <footer class="footer-section">
 
