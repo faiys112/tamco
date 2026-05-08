@@ -1,228 +1,397 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<style>
-     :root {
-        --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-        --line-color: #e2e8f0;
-        --border-accent: #b0534c;
-        --bg-light: #f8fafc;
-    }
-    
-    .org-section {
-        background-color: var(--bg-light);
-        padding: 60px 20px;
-        font-family: 'Inter', sans-serif;
-        overflow-x: auto;
-    }
-    
-    .org-header {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-    
-    .org-main-title {
-        font-size: 2.5rem;
-        color: #1e293b;
-        margin-bottom: 10px;
-        letter-spacing: -1px;
-    }
-    
-    .title-underline {
-        width: 100px;
-        height: 4px;
-        background: var(--border-accent);
-        margin: 0 auto;
-        border-radius: 10px;
-    }
-    /* Tree Layout Logic */
-    
-    .org-tree ul {
-        position: relative;
-        padding: 20px 0;
-        display: flex;
-        justify-content: center;
-        list-style: none;
-    }
-    
-    .org-tree li {
-        text-align: center;
-        position: relative;
-        padding: 20px 10px;
-    }
-    /* Vertical Connecting Lines */
-    
-    .org-tree li::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        border-left: 2px solid var(--border-accent);
-        height: 20px;
-    }
-    /* Node Styling */
-    
-    .node-item {
-        display: inline-block;
-        padding: 12px 24px;
-        background: #fff;
-        border: 2px solid var(--border-accent);
-        color: #334155;
-        font-weight: 600;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        cursor: default;
-        position: relative;
-        z-index: 2;
-    }
-    
-    .node-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(176, 83, 76, 0.2);
-        background: #fffcfc;
-    }
-    /* Specific Node Shapes */
-    
-    .primary-node {
-        border-width: 3px;
-        font-size: 1.2rem;
-    }
-    
-    .oval-node {
-        border-radius: 50px;
-        font-weight: 400;
-        font-size: 0.9rem;
-    }
-    /* Horizontal Connectors for Branches */
-    
-    .split-container>li::after,
-    .split-container>li::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        border-top: 2px solid var(--border-accent);
-        width: 50%;
-    }
-    
-    .split-container>li::before {
-        left: 50%;
-        border-left: 2px solid var(--border-accent);
-    }
-    
-    .split-container>li::after {
-        right: 50%;
-    }
-    /* Grouping Ovals */
-    
-    .oval-group,
-    .grid-ovals {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 30px;
-        max-width: 500px;
-    }
-    
-    .grid-ovals {
-        max-width: 700px;
-    }
-    
-    .small-sub {
-        margin-top: 10px;
-        background: #f1f5f9;
-        border-style: dashed;
-    }
-    
-    .v-arrow {
-        width: 2px;
-        height: 60px;
-        background: #c2410c;
-        position: relative;
-        margin: 20px auto;
-    }
-    /* arrow head */
-    
-    .v-arrow::after {
-        content: "";
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-    }
-</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAMCO Organization Chart</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: #f4f4f4;
+            padding: 40px 20px;
+        }
+        /* TITLE */
+        
+        .title {
+            width: fit-content;
+            margin: 0 auto 50px;
+            padding: 18px 40px;
+            border: 3px solid blue;
+            border-radius: 18px;
+            font-size: 55px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        /* MAIN */
+        
+        .chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* BOX */
+        
+        .box {
+            background: #fff;
+            border: 3px solid blue;
+            border-radius: 14px;
+            padding: 16px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 255, 0.25);
+        }
+        /* OVAL */
+        
+        .oval {
+            background: #fff;
+            border: 3px solid blue;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+            text-align: center;
+            min-width: 130px;
+        }
+        
+        .oval:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 255, 0.2);
+        }
+        /* VERTICAL LINE */
+        
+        .v-line {
+            width: 3px;
+            height: 40px;
+            background: blue;
+        }
+        /* ARROW */
+        
+        .arrow-down {
+            width: 3px;
+            height: 30px;
+            background: blue;
+            position: relative;
+        }
+        
+        .arrow-down::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid blue;
+        }
+        /* HORIZONTAL MAIN LINE */
+        
+        .main-horizontal {
+            width: 800px;
+            height: 3px;
+            background: blue;
+            margin-top: 40px;
+            position: relative;
+        }
+        /* LEFT & RIGHT CONNECT */
+        
+        .left-connect,
+        .right-connect {
+            position: absolute;
+            width: 3px;
+            height: 25px;
+            background: blue;
+            top: 0;
+        }
+        
+        .left-connect {
+            left: 0;
+        }
+        
+        .right-connect {
+            right: 0;
+        }
+        /* TOP BRANCH */
+        
+        .branch-row {
+            width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+        /* SIDE SECTION */
+        
+        .side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* LOWER LINE */
+        
+        .lower-line {
+            width: 200px;
+            height: 3px;
+            background: blue;
+            position: relative;
+            margin-top: 15px;
+        }
+        
+        .lower-line::before,
+        .lower-line::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 18px;
+            background: blue;
+            top: 0;
+        }
+        
+        .lower-line::before {
+            left: 0;
+        }
+        
+        .lower-line::after {
+            right: 0;
+        }
+        /* OVAL FLEX */
+        
+        .oval-row {
+            display: flex;
+            gap: 60px;
+            margin-top: 15px;
+        }
+        /* OFFICE ASSISTANT CONNECT */
+        
+        .office-connect {
+            width: 200px;
+            height: 35px;
+            border-left: 3px solid blue;
+            border-right: 3px solid blue;
+            border-bottom: 3px solid blue;
+            margin-top: -2px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        /* RIGHT SECTION */
+        
+        .right-line {
+            width: 720px;
+            height: 3px;
+            background: blue;
+            position: relative;
+            margin-top: 15px;
+        }
+        
+        .right-line .drop {
+            position: absolute;
+            width: 3px;
+            height: 20px;
+            background: blue;
+            top: 0;
+        }
+        
+        .right-line .drop:nth-child(1) {
+            left: 0;
+        }
+        
+        .right-line .drop:nth-child(2) {
+            left: 150px;
+        }
+        
+        .right-line .drop:nth-child(3) {
+            left: 330px;
+        }
+        
+        .right-line .drop:nth-child(4) {
+            left: 530px;
+        }
+        
+        .right-line .drop:nth-child(5) {
+            right: 0;
+        }
+        /* RIGHT OVALS */
+        
+        .right-ovals {
+            display: flex;
+            gap: 40px;
+            margin-top: 15px;
+        }
+        /* RECOVERY */
+        
+        .recovery-line {
+            width: 620px;
+            height: 3px;
+            background: blue;
+            margin-top: 25px;
+            position: relative;
+        }
+        
+        .recovery-line::before,
+        .recovery-line::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 35px;
+            background: blue;
+            top: -35px;
+        }
+        
+        .recovery-line::before {
+            left: 0;
+        }
+        
+        .recovery-line::after {
+            right: 0;
+        }
+        /* RECOVERY CENTER */
+        
+        .recovery-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* RESPONSIVE */
+        
+        @media(max-width:1200px) {
+            .branch-row {
+                width: 100%;
+                flex-direction: column;
+                gap: 70px;
+                align-items: center;
+            }
+            .main-horizontal {
+                width: 90%;
+            }
+            .right-line {
+                width: 100%;
+            }
+            .right-ovals {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .title {
+                font-size: 35px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
 
 <body>
 
-    <section class="org-section">
-        <div class="org-header">
-            <h1 class="org-main-title">ORGANISATION CHART OF TAMCO</h1>
-            <div class="title-underline"></div>
+    <h1 class="title">ORGANIZATION CHART OF TAMCO</h1>
+
+    <div class="chart">
+
+        <div class="box">Chairman</div>
+
+        <div class="arrow-down"></div>
+
+        <div class="box">Managing Director</div>
+
+        <div class="arrow-down"></div>
+
+        <!-- MAIN LINE -->
+        <div class="main-horizontal">
+            <div class="left-connect"></div>
+            <div class="right-connect"></div>
         </div>
 
-        <div class="org-tree">
-            <ul>
-                <li>
-                    <div class="node-item primary-node">Chairman</div>
-                    <ul>
-                        <li>
-                            <div class="node-item secondary-node">Managing Director</div>
-                            <ul class="split-container">
-                                <!-- Left Branch -->
-                                <li class="branch">
-                                    <div class="node-item box-node">Account Officer</div>
-                                    <ul>
-                                        <li>
-                                            <div class="node-item box-node">Superintendent</div>
-                                            <div class="v-arrow"></div>
-                                            <div style="background-color: #ffffff;
-  width: 300px;
-  border: 2px solid #020202;
-  padding: 50px;
-  margin: 20px;
-  border-radius: 50px;" class="oval-group">
-                                                <div class="node-item oval-node">Assistant</div>
-                                                <div class="node-item oval-node">Junior Assistant</div>
-                                                <div class="node-item oval-node wide">Office Assistant</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+        <!-- BRANCHES -->
+        <div class="branch-row">
 
-                                <!-- Right Branch -->
-                                <li class="branch">
-                                    <div class="node-item box-node">Manager (Credit & Project)</div>
-                                    <ul>
-                                        <li>
-                                            <div class="node-item box-node">Superintendent</div>
-                                            <div class="v-arrow"></div>
-                                            <div style="background-color: #ffffff;
-  width: 522px;
-  border: 2px solid #020202;
-  padding: 50px;
-  margin: 20px;
-  border-radius: 50px;" class="grid-ovals">
-                                                <div class="node-item oval-node">Assistant</div>
-                                                <div class="node-item oval-node">Assistant</div>
-                                                <div class="node-item oval-node">Junior Assistant</div>
-                                                <div class="node-item oval-node">Computer Operator</div>
-                                                <div class="node-item oval-node">Typist</div>
-                                                <div class="node-item oval-node">Recovery Supervisor</div>
-                                                <div class="node-item oval-node small-sub">Office Assistant</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <!-- LEFT -->
+            <div class="side">
+
+                <div class="box">Accounts Officer</div>
+
+                <div class="arrow-down"></div>
+
+                <div class="box">Superintendent</div>
+
+                <div class="arrow-down"></div>
+
+                <div class="lower-line"></div>
+
+                <div class="oval-row">
+                    <div class="oval">Assistant</div>
+                    <div class="oval">Junior Assistant</div>
+                </div>
+
+                <div class="office-connect">
+                    <div class="oval">Office Assistant</div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="side">
+
+                <div class="box">Manager (Credit & Project)</div>
+
+                <div class="arrow-down"></div>
+
+                <div class="box">Superintendent</div>
+
+                <div class="arrow-down"></div>
+
+                <div class="right-line">
+                    <div class="drop"></div>
+                    <div class="drop"></div>
+                    <div class="drop"></div>
+                    <div class="drop"></div>
+                    <div class="drop"></div>
+                </div>
+
+                <div class="right-ovals">
+
+                    <div class="oval">Assistant</div>
+
+                    <div class="oval">Assistant</div>
+
+                    <div class="oval">Junior Assistant</div>
+
+                    <div class="oval">Computer Operator</div>
+
+                    <div class="oval">Typist</div>
+
+                </div>
+
+                <div class="recovery-center">
+
+                    <div class="recovery-line"></div>
+
+                    <div class="oval" style="margin-top:-8px;">
+                        Recovery Supervisor
+                    </div>
+
+                    <div class="arrow-down"></div>
+
+                    <div class="oval">Office Assistant</div>
+
+                </div>
+
+            </div>
+
         </div>
-    </section>
+
+    </div>
+
 </body>
 
 </html>
