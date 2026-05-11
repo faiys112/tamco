@@ -1,397 +1,283 @@
-<!DOCTYPE html>
-<html lang="en">
+<title>Page Title</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAMCO Organization Chart</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        body {
-            background: #f4f4f4;
-            padding: 40px 20px;
-        }
-        /* TITLE */
-        
-        .title {
-            width: fit-content;
-            margin: 0 auto 50px;
-            padding: 18px 40px;
-            border: 3px solid blue;
-            border-radius: 18px;
-            font-size: 55px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        /* MAIN */
-        
-        .chart {
-            display: flex;
+<style>
+    .gtl-section {
+        padding: 80px 40px;
+        background: #dee2e9;
+        text-align: center;
+        border-radius: 28px;
+    }
+    
+    .gtl-section h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    
+    .gtl-desc {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        color: #555;
+    }
+    /* FEATURES */
+    
+    .gtl-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 7px;
+    }
+    
+    .gtl-features div {
+        background: #ffffff08;
+        padding: 2px 386px;
+        box-shadow: 0px 1px 0px 0px rgb(255 255 255 / 5%);
+        transition: 0.3s;
+    }
+    
+    .gtl-features div:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    /* TABLE */
+    
+    .gtl-table-box {
+        overflow-x: auto;
+        margin-bottom: 30px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    thead {
+        background: linear-gradient(to right, #4b2cbf, #7a2cff);
+        color: #fff;
+    }
+    
+    th,
+    td {
+        padding: 15px;
+        text-align: center;
+    }
+    
+    tbody tr:nth-child(even) {
+        background: #f3f4f6;
+    }
+    
+    tbody tr:hover {
+        background: #e0e7ff;
+    }
+    /* FUND BOX */
+    
+    .fund-box {
+        background: #fff;
+        display: inline-block;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+    }
+    
+    .fund-box h4 {
+        margin-bottom: 10px;
+    }
+    /* DOWNLOAD BUTTON */
+    
+    .download-btn {
+        display: inline-block;
+        padding: 14px 25px;
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        color: #fff;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .download-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    /* RESPONSIVE */
+    
+    @media(max-width:768px) {
+        .gtl-features {
             flex-direction: column;
             align-items: center;
         }
-        /* BOX */
-        
-        .box {
-            background: #fff;
-            border: 3px solid blue;
-            border-radius: 14px;
-            padding: 16px 30px;
-            font-size: 18px;
-            font-weight: 600;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    .container {
+        width: 100%;
+        /* Limits the width of the container */
+        max-width: 100;
+        /* Prevents it from getting too wide on large screens */
+        margin: 0 auto;
+        /* Centers the container horizontally */
+        padding: 20px;
+        /* Adds space inside the container */
+        background-color: #f4f4f400;
+    }
+    /* PHOTO SECTION */
+    
+    .virasat-gallery {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 40px 0;
+        flex-wrap: wrap;
+    }
+    
+    .gallery-box {
+        position: relative;
+        width: 420px;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        transition: 0.4s ease;
+    }
+    
+    .gallery-box img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        display: block;
+        transition: 0.5s ease;
+    }
+    
+    .gallery-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(111, 66, 193, 0.35);
+    }
+    
+    .gallery-box:hover img {
+        transform: scale(1.08);
+    }
+    
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: #fff;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+    /* MOBILE RESPONSIVE */
+    
+    @media(max-width:768px) {
+        .gallery-box {
+            width: 100%;
         }
-        
-        .box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 255, 0.25);
+        .gallery-box img {
+            height: 230px;
         }
-        /* OVAL */
-        
-        .oval {
-            background: #fff;
-            border: 3px solid blue;
-            border-radius: 50px;
-            padding: 14px 28px;
-            font-size: 16px;
-            font-weight: 600;
-            transition: 0.3s;
-            text-align: center;
-            min-width: 130px;
-        }
-        
-        .oval:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 255, 0.2);
-        }
-        /* VERTICAL LINE */
-        
-        .v-line {
-            width: 3px;
-            height: 40px;
-            background: blue;
-        }
-        /* ARROW */
-        
-        .arrow-down {
-            width: 3px;
-            height: 30px;
-            background: blue;
-            position: relative;
-        }
-        
-        .arrow-down::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 12px solid blue;
-        }
-        /* HORIZONTAL MAIN LINE */
-        
-        .main-horizontal {
-            width: 800px;
-            height: 3px;
-            background: blue;
-            margin-top: 40px;
-            position: relative;
-        }
-        /* LEFT & RIGHT CONNECT */
-        
-        .left-connect,
-        .right-connect {
-            position: absolute;
-            width: 3px;
-            height: 25px;
-            background: blue;
-            top: 0;
-        }
-        
-        .left-connect {
-            left: 0;
-        }
-        
-        .right-connect {
-            right: 0;
-        }
-        /* TOP BRANCH */
-        
-        .branch-row {
-            width: 1100px;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 25px;
-        }
-        /* SIDE SECTION */
-        
-        .side {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        /* LOWER LINE */
-        
-        .lower-line {
-            width: 200px;
-            height: 3px;
-            background: blue;
-            position: relative;
-            margin-top: 15px;
-        }
-        
-        .lower-line::before,
-        .lower-line::after {
-            content: "";
-            position: absolute;
-            width: 3px;
-            height: 18px;
-            background: blue;
-            top: 0;
-        }
-        
-        .lower-line::before {
-            left: 0;
-        }
-        
-        .lower-line::after {
-            right: 0;
-        }
-        /* OVAL FLEX */
-        
-        .oval-row {
-            display: flex;
-            gap: 60px;
-            margin-top: 15px;
-        }
-        /* OFFICE ASSISTANT CONNECT */
-        
-        .office-connect {
-            width: 200px;
-            height: 35px;
-            border-left: 3px solid blue;
-            border-right: 3px solid blue;
-            border-bottom: 3px solid blue;
-            margin-top: -2px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-        }
-        /* RIGHT SECTION */
-        
-        .right-line {
-            width: 720px;
-            height: 3px;
-            background: blue;
-            position: relative;
-            margin-top: 15px;
-        }
-        
-        .right-line .drop {
-            position: absolute;
-            width: 3px;
-            height: 20px;
-            background: blue;
-            top: 0;
-        }
-        
-        .right-line .drop:nth-child(1) {
-            left: 0;
-        }
-        
-        .right-line .drop:nth-child(2) {
-            left: 150px;
-        }
-        
-        .right-line .drop:nth-child(3) {
-            left: 330px;
-        }
-        
-        .right-line .drop:nth-child(4) {
-            left: 530px;
-        }
-        
-        .right-line .drop:nth-child(5) {
-            right: 0;
-        }
-        /* RIGHT OVALS */
-        
-        .right-ovals {
-            display: flex;
-            gap: 40px;
-            margin-top: 15px;
-        }
-        /* RECOVERY */
-        
-        .recovery-line {
-            width: 620px;
-            height: 3px;
-            background: blue;
-            margin-top: 25px;
-            position: relative;
-        }
-        
-        .recovery-line::before,
-        .recovery-line::after {
-            content: "";
-            position: absolute;
-            width: 3px;
-            height: 35px;
-            background: blue;
-            top: -35px;
-        }
-        
-        .recovery-line::before {
-            left: 0;
-        }
-        
-        .recovery-line::after {
-            right: 0;
-        }
-        /* RECOVERY CENTER */
-        
-        .recovery-center {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        /* RESPONSIVE */
-        
-        @media(max-width:1200px) {
-            .branch-row {
-                width: 100%;
-                flex-direction: column;
-                gap: 70px;
-                align-items: center;
-            }
-            .main-horizontal {
-                width: 90%;
-            }
-            .right-line {
-                width: 100%;
-            }
-            .right-ovals {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .title {
-                font-size: 35px;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
+    }
+</style>
 
-<body>
 
-    <h1 class="title">ORGANIZATION CHART OF TAMCO</h1>
 
-    <div class="chart">
 
-        <div class="box">Chairman</div>
+<section class="gtl-section">
 
-        <div class="arrow-down"></div>
 
-        <div class="box">Managing Director</div>
+    <h4> VIRASAT – (A credit scheme for craft person) as a component of Term loan. This scheme is mainly for artisans at lower rate of interest in order to meet their requirement of capital investment for purchase of raw material viz., equipment / tools /
+        machineries. The details of the scheme are as follows:</h4> <br>
 
-        <div class="arrow-down"></div>
-
-        <!-- MAIN LINE -->
-        <div class="main-horizontal">
-            <div class="left-connect"></div>
-            <div class="right-connect"></div>
+    <!-- FEATURES -->
+    <div>
+        <div class="gtl-features">
+            <div style="text-align: left; ">✔ Equipment</div>
         </div>
 
-        <!-- BRANCHES -->
-        <div class="branch-row">
+        <div class="gtl-features">
+            <div style="text-align: left; ">✔ Tools </div>
+        </div>
 
-            <!-- LEFT -->
-            <div class="side">
+        <div class="gtl-features">
+            <div style="text-align: left;">✔ Machineries</div>
+        </div>
+    </div>
 
-                <div class="box">Accounts Officer</div>
 
-                <div class="arrow-down"></div>
 
-                <div class="box">Superintendent</div>
+    <div class="virasat-gallery">
 
-                <div class="arrow-down"></div>
+        <div class="gallery-box">
+            <img src="https://res.cloudinary.com/dtfhliga9/image/upload/q_auto/f_auto/v1778482772/Virasat-Scheme_oecgcg.jpg" alt="Virasat Scheme Beneficiary">
+            <div class="overlay"></div>
+        </div>
 
-                <div class="lower-line"></div>
-
-                <div class="oval-row">
-                    <div class="oval">Assistant</div>
-                    <div class="oval">Junior Assistant</div>
-                </div>
-
-                <div class="office-connect">
-                    <div class="oval">Office Assistant</div>
-                </div>
-
-            </div>
-
-            <!-- RIGHT -->
-            <div class="side">
-
-                <div class="box">Manager (Credit & Project)</div>
-
-                <div class="arrow-down"></div>
-
-                <div class="box">Superintendent</div>
-
-                <div class="arrow-down"></div>
-
-                <div class="right-line">
-                    <div class="drop"></div>
-                    <div class="drop"></div>
-                    <div class="drop"></div>
-                    <div class="drop"></div>
-                    <div class="drop"></div>
-                </div>
-
-                <div class="right-ovals">
-
-                    <div class="oval">Assistant</div>
-
-                    <div class="oval">Assistant</div>
-
-                    <div class="oval">Junior Assistant</div>
-
-                    <div class="oval">Computer Operator</div>
-
-                    <div class="oval">Typist</div>
-
-                </div>
-
-                <div class="recovery-center">
-
-                    <div class="recovery-line"></div>
-
-                    <div class="oval" style="margin-top:-8px;">
-                        Recovery Supervisor
-                    </div>
-
-                    <div class="arrow-down"></div>
-
-                    <div class="oval">Office Assistant</div>
-
-                </div>
-
-            </div>
-
+        <div class="gallery-box">
+            <img src="https://res.cloudinary.com/dtfhliga9/image/upload/q_auto/f_auto/v1778482772/Screenshot_2026-05-11_122827_nhlmy9.png" alt="Loan Beneficiary">
+            <div class="overlay"></div>
         </div>
 
     </div>
 
-</body>
+    <!-- SCHEME TABLE -->
+    <div class="gtl-table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Details</th>
+                    <th>Credit Line I</th>
+                    <th>Credit Line II</th>
+                </tr>
+            </thead>
 
-</html>
+            <tbody>
+                <tr>
+                    <td>Maximum Loan Amount</td>
+                    <td>₹10.00 Lakhs</td>
+                    <td>₹10.00 Lakhs</td>
+                </tr>
+
+                <tr>
+                    <td>Income Limit</td>
+                    <td>₹3,00,000</td>
+                    <td>₹8,00,000</td>
+                </tr>
+
+                <tr>
+                    <td>Interest Rate</td>
+                    <td>5% p.a (Male) / 4% p.a (Female)</td>
+                    <td>6% p.a (Male) / 5% p.a (Female)</td>
+                </tr>
+
+                <tr>
+                    <td>Repayment Period</td>
+                    <td>Maximum 5 years (60 monthly instalments)</td>
+                    <td>Maximum 5 years (60 monthly instalments)</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FUND SHARE -->
+    <div class="fund-box">
+        <h4>Fund Sharing Pattern</h4>
+        <p>NMDFC: <strong>90%</strong></p>
+        <p>TAMCO: <strong>5%</strong></p>
+        <p>Beneficiary: <strong>5%</strong></p>
+    </div>
+
+    <!-- DOWNLOAD BUTTON -->
+    <div class="download-box">
+        <a href="https://drive.google.com/file/d/1oQk--Hx45K3zeuqzJ_fNRy7A6UILz97M/view?usp=sharing" download="" class="download-btn">
+            📄 Download Application Form
+        </a>
+    </div>
+
+</section>
